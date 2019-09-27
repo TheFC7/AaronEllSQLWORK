@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/21/2016 11:50:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B14"
+  DTS:CreatorName="ACNZ02\ames"
+  DTS:DTSID="{413E830C-D417-456D-B8FC-0144218EC786}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="5129"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{06E7D921-A126-4DD1-B24A-723443C04E44}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{34810F5F-4053-43C2-9F0A-8D7D17206B87}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{49B5B275-C994-425B-B632-A74214CED57A}"
+          SQLTask:SqlStatementSource="CREATE DATABASE [GamingProject]&#xA; CONTAINMENT = NONE&#xA; ON  PRIMARY &#xA;( NAME = N'GamingProject', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER_AARO\MSSQL\DATA\GamingProject.mdf' , SIZE = 5120KB , FILEGROWTH = 1024KB )&#xA; LOG ON &#xA;( NAME = N'GamingProject_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER_AARO\MSSQL\DATA\GamingProject_log.ldf' , SIZE = 1024KB , FILEGROWTH = 10%)&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET COMPATIBILITY_LEVEL = 120&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_NULL_DEFAULT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_NULLS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_PADDING OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_WARNINGS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ARITHABORT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_CLOSE OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_SHRINK OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_CREATE_STATISTICS ON&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_UPDATE_STATISTICS ON &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CURSOR_CLOSE_ON_COMMIT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CURSOR_DEFAULT  GLOBAL &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CONCAT_NULL_YIELDS_NULL OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET NUMERIC_ROUNDABORT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET QUOTED_IDENTIFIER OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET RECURSIVE_TRIGGERS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  DISABLE_BROKER &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_UPDATE_STATISTICS_ASYNC OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET DATE_CORRELATION_OPTIMIZATION OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET PARAMETERIZATION SIMPLE &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET READ_COMMITTED_SNAPSHOT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  READ_WRITE &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET RECOVERY FULL &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  MULTI_USER &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET PAGE_VERIFY CHECKSUM  &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET TARGET_RECOVERY_TIME = 0 SECONDS &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET DELAYED_DURABILITY = DISABLED &#xA;GO&#xA;USE [GamingProject]&#xA;GO&#xA;IF NOT EXISTS (SELECT name FROM sys.filegroups WHERE is_default=1 AND name = N'PRIMARY') ALTER DATABASE [GamingProject] MODIFY FILEGROUP [PRIMARY] DEFAULT&#xA;GO&#xA;&#xA;&#xA;create schema Game&#xA;go&#xA;Create schema PublicMarket&#xA;go&#xA;Create Schema Hardware&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="442,149" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1069 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/21/2016 11:50:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B14"
+  DTS:CreatorName="ACNZ02\ames"
+  DTS:DTSID="{1AFC80CF-967F-4F08-AFA3-1B1FDDC893C0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="5129"
+  DTS:ObjectName="Database Creation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{86065836-FCFD-4C02-908A-FDF6AD48BC8D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[B14\MSSQLSERVER_AARO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+      DTS:ObjectName="B14\MSSQLSERVER_AARO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=B14\MSSQLSERVER_AARO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IHAVENOIDEA]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{37B65F47-4263-42EE-AA82-947C78169978}"
+      DTS:ObjectName="IHAVENOIDEA">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:CreationName="Microsoft.LogProviderEventLog"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:DTSID="{6140109E-59BB-49C4-8E8B-45B27E219D32}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,7,OnError</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">0</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Creating Database with schemas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9C96B5D7-1890-4EE6-A786-80C739C871D1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creating Database with schemas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="If not exists (select * from sys.databases where name = 'GamingProject' )&#xA;&#xA;CREATE DATABASE GamingProject&#xA; CONTAINMENT = NONE&#xA; ON  PRIMARY &#xA;( NAME = N'GamingProject', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER_AARO\MSSQL\DATA\GamingProject.mdf' , SIZE = 5120KB , FILEGROWTH = 1024KB )&#xA; LOG ON &#xA;( NAME = N'GamingProject_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER_AARO\MSSQL\DATA\GamingProject_log.ldf' , SIZE = 1024KB , FILEGROWTH = 10%)&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET COMPATIBILITY_LEVEL = 120&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_NULL_DEFAULT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_NULLS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_PADDING OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ANSI_WARNINGS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET ARITHABORT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_CLOSE OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_SHRINK OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_CREATE_STATISTICS ON&#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_UPDATE_STATISTICS ON &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CURSOR_CLOSE_ON_COMMIT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CURSOR_DEFAULT  GLOBAL &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET CONCAT_NULL_YIELDS_NULL OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET NUMERIC_ROUNDABORT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET QUOTED_IDENTIFIER OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET RECURSIVE_TRIGGERS OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  DISABLE_BROKER &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET AUTO_UPDATE_STATISTICS_ASYNC OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET DATE_CORRELATION_OPTIMIZATION OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET PARAMETERIZATION SIMPLE &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET READ_COMMITTED_SNAPSHOT OFF &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  READ_WRITE &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET RECOVERY FULL &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET  MULTI_USER &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET PAGE_VERIFY CHECKSUM  &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET TARGET_RECOVERY_TIME = 0 SECONDS &#xA;GO&#xA;ALTER DATABASE [GamingProject] SET DELAYED_DURABILITY = DISABLED &#xA;GO&#xA;USE [GamingProject]&#xA;GO&#xA;&#xA;IF NOT EXISTS (SELECT name FROM sys.filegroups WHERE is_default=1 AND name = N'PRIMARY') ALTER DATABASE [GamingProject] MODIFY FILEGROUP [PRIMARY] DEFAULT&#xA;GO&#xA;&#xA;&#xA;create schema Game&#xA;go&#xA;Create schema PublicMarket&#xA;go&#xA;Create Schema Hardware&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Creation of tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C677B0FA-8FCB-4791-A303-B52E0A0CF8C2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creation of tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="Use GamingProject;&#xA;go&#xA;&#xA;Create table Game.Genres&#xA;(&#x9;GenreID int Primary key not null,&#xA;&#x9;Genre Nvarchar(50),&#xA;&#x9;GenreDesp NVarchar(MAX) ) ;&#xA;&#xA;Create Table Game.Games (&#xA;GameID int identity (1,1) Primary Key Not null,&#xA;GenreID int Default 12,&#xA;Title Nvarchar(50),&#xA;Company Nvarchar(50),&#xA;PurchancePrice varchar(255),&#xA;ReleaseDate Varchar(500) ) ;&#xA;&#xA;Create Table Game.GamePlatform&#xA;(&#x9;CategoryID int identity Primary Key Not NULL,&#xA;&#x9;GameID int,&#xA;&#x9;PC_Platform Bit,&#xA;&#x9;PS_Platform Bit,&#xA;&#x9;XBOX_Platform Bit,&#xA;&#x9;Phone_Platform Bit);&#xA;&#xA;Create table Game.GameScore&#xA;(&#x9;ScoreID int identity (1,1) Primary Key not Null,&#xA;&#x9;GameID int,&#xA;&#x9;Title NVarchar(255),&#xA;&#x9;Gamescore varchar(255),&#xA;&#x9;Gamingscoringcompany NVarchar(50),&#xA;&#x9;Personrating Nvarchar(50) );&#xA;&#xA;Create table PublicMarket.Market&#xA;(&#x9;MarketID int identity (1,1) Primary key not null,&#xA;&#x9;GameID int,&#xA;&#x9;Totalsales varchar(max),&#xA;&#x9;Numberofsales varchar(max),&#xA;&#x9;Cost varchar(max),&#xA;&#x9;Releasedate varchar(500) );&#xA;&#xA;Create table Hardware.PCRequirementsCPU&#xA;(&#x9;CPUID int Identity(1,1)Primary Key not null,&#xA;&#x9;GameID int,&#xA;&#x9;CPURequirements varchar(255)    &#xA;&#x9;CONSTRAINT FK_Game_Games FOREIGN KEY (GameID)     &#xA;    REFERENCES Game.Games (GameID) );&#xA;&#xA;Create table Hardware.PCRequirementsGPU&#xA;(&#x9;GPUID int Identity(1,1)Primary Key not null,&#xA;&#x9;GameID int,&#xA;&#x9;GPURequirements varchar(255)   &#xA;&#x9;CONSTRAINT FK_Game_Games1 FOREIGN KEY (GameID)     &#xA;    REFERENCES Game.Games (GameID) );&#xA;&#xA;&#x9;Create table Hardware.PCRequirementsRam&#xA;(&#x9;RAMID int Identity(1,1)Primary Key not null,&#xA;&#x9;GameID int,&#xA;&#x9;RAMRequirements varchar(255)    &#xA;&#x9;CONSTRAINT FK_Game_Games2 FOREIGN KEY (GameID)     &#xA;    REFERENCES Game.Games (GameID) ) ;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dropping database if present"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1DB3D42B-8020-4FB3-8CE1-66E6844DF479}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dropping database if present"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="DROP DATABASE GamingProject" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\game - gernes table data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C5681DFD-47C8-40A3-B087-9243DA7F8276}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="game - gernes table data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="use GamingProject&#xA;Insert into Game.Genres (GenreID ,Genre, GenreDesp)&#x9;&#xA;Values&#x9;('1', 'Action','The action Gerne is a video game genre that emphasizes physical challenges, including hand�eye coordination and reaction-time.'),&#xA;&#x9;&#x9;('2','Adventure','The video game genre is therefore defined by its gameplay, unlike the literary genre, which is defined by the subject it addresses, the activity of adventure.'),&#xA;&#x9;&#x9;('3','Survival','Survival games genre that are a game that generally start the player with minimal resources in a hostile, open-world environment or not, and require them to collect resources, craft tools, weapons, and shelter, and survive as long as possible.'),&#xA;&#x9;&#x9;('4','Sports','Sports games are games in which players control either players or managers of a real or fictional sports.'),&#xA;&#x9;&#x9;('5','Survival horror','Survival Horror games drop the player in a horror setting where survival against usually supernatural enemies is made difficult by sparse distribution of weaponry and ammunition and often a more realistic approach of the protagonists physical capabilities. The goal of these games is usually to escape the hazardous situation and trying to survive.'),&#xA;&#x9;&#x9;('6','First-person shooter','First-person shooters are a type of three-dimensional shooter game, featuring a first-person point of view with which the player sees the action through the eyes of the player character. They are unlike third-person shooters, in which the player can see (usually from behind) the character they are controlling. The primary design element is combat, mainly involving firearms'),&#xA;&#x9;&#x9;('7','Role-playing','Role-Playing (RPG): Role-Playing games (RPGs) belong to a wide a varied game genre that focuses on character development.&#x9;'),&#xA;&#x9;&#x9;('8','Turn-based strategy,','Turn-Based games are divided in turns. Players can usually only interact with the game during their turn.'),&#xA;&#x9;&#x9;('9','Indie','Independent video games (commonly referred to as indie games) are video games created without video game publisher financial support usually by individuals or small teams'),&#xA;&#x9;&#x9;('10','Simulation','A simulation video game describes a diverse super-category of video games, generally designed to closely simulate aspects of a real or fictional reality.'),&#xA;&#x9;&#x9;('11','Real-time strategy','In an RTS, as in other wargames, the participants position and maneuver units and structures under their control to secure areas of the map and/or destroy their opponents assets. In a typical RTS, it is possible to create additional units and structures during the course of a game.'),&#xA;&#x9;&#x9;('12','Unsorted','Unsorted') &#xA;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\game - platform table data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task "
+      DTS:DTSID="{06CB6FED-8365-43D4-BB81-FFA97EA5B3D6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="game - platform table data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="use GamingProject&#xA;declare @categoryID int &#xA;set @categoryID = @categoryID - 1;&#xA;&#xA;Insert into Game.GamePlatform (GameID, PC_Platform, PS_Platform, XBOX_Platform, Phone_Platform )&#xA;Values&#x9;('1','1','1','1','0'),&#xA;&#x9;&#x9;('2','1','0','0','0'),&#xA;&#x9;&#x9;('3','1','1','1','0'),&#xA;&#x9;&#x9;('4','1','0','0','0'),&#xA;&#x9;&#x9;('5','1','1','0','0'),&#xA;&#x9;&#x9;('6','1','1','1','0'),&#xA;&#x9;&#x9;('7','1','0','0','0'),&#xA;&#x9;&#x9;('8','1','1','1','0'),&#xA;&#x9;&#x9;('9','1','0','0','0'),&#xA;&#x9;&#x9;('10','1','1','1','0'),&#xA;&#x9;&#x9;('11','1','1','0','0'),&#xA;&#x9;&#x9;('12','1','0','0','0'),&#xA;&#x9;&#x9;('13','1','0','1','0'),&#xA;&#x9;&#x9;('14','1','0','0','1');&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Game-games Table data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{81D39430-CDEB-4099-8B07-D11E8DC09E4F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Game-games Table data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="Use GamingProject;&#xA;&#xA;INSERT INTO Game.Games ( Title, Company, PurchancePrice, ReleaseDate )&#xA;Values&#x9;('Grand Theft Auto:5', 'Rockstar Games', '91.99NZD', '14 Apr, 2015'),&#xA;&#x9;&#x9;('Rust','Facepunch Studios','23.99NZD','12 Dec, 2013' ),&#xA;&#x9;&#x9;('Rocket League','Psyonix, Inc','23.99NZD','7 Jul, 2015'),&#xA;&#x9;&#x9;('Dead by Daylight','Behaviour Digital Inc.','23.99NZD','14 Jun, 2016'),&#xA;&#x9;&#x9;('No Mans Sky','Hello Games','89.95NZD', '13 Aug, 2016 '),&#xA;&#x9;&#x9;('DOOM','id Software', '99.95NZD', '13 May,2016' ),&#xA;&#x9;&#x9;('ARK: Survival Evolved', ' Studio Wildcard&#x9;', '34.99NZD', ' 3 Jun, 2015' ),&#xA;&#x9;&#x9;('Fallout 4','Bethesda Softworks', '99.95NZD',' 10 Nov, 2015 '),&#xA;&#x9;&#x9;('Total War: WARHAMMER','Creative Assembly', &#x9;'99.99NZD',&#x9;'24 May 2016'),&#xA;&#x9;&#x9;('The Elder Scrolls V: Skyrim','Bethesda Game Studios','23.99NZD','11 Nov 2011'),&#xA;&#x9;&#x9;('Killing Floor 2','Tripwire Interactive', '35.99NZD', '22 Apr 2015'),&#xA;&#x9;&#x9;('Counter-Strike: Global Offensive', 'Valve','17.99NZD','22 Aug 2012'),&#xA;&#x9;&#x9;('Scrap Mechanic','Axolot Games','23.99NZD','20 Jan 2016'),&#xA;&#x9;&#x9;('Age of Empires� III: Complete Collection','Ensemble Studios','47.99NZD','15 Sep, 2009')&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '1'&#xA;&#x9;where GameID = '1'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '3'&#xA;&#x9;where GameID = '2'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '4'&#xA;&#x9;where GameID = '3'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '5'&#xA;&#x9;where GameID = '4'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '2'&#xA;&#x9;where GameID = '5'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '6'&#xA;&#x9;where GameID = '6'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '3'&#xA;&#x9;where GameID = '7'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '7'&#xA;&#x9;where GameID = '8'&#xA;&#xA;&#x9;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '11'&#xA;&#x9;where GameID = '9'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '7'&#xA;&#x9;where GameID = '10'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '6'&#xA;&#x9;where GameID = '11'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '6'&#xA;&#x9;where GameID = '12'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '1'&#xA;&#x9;where GameID = '13'&#xA;&#xA;&#x9;Update game.Games&#xA;&#x9;set [GenreID] = '11'&#xA;&#x9;where GameID = '14'&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Game-gamescore table data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B33E3B19-8C0B-4F17-AD8B-066F8435A6DA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Game-gamescore table data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="use GamingProject&#xA;&#xA;insert into game.GameScore (GameID, Title)&#xA;select gameid, Title from game.Games;&#xA;&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Dan Stapleton',Gamescore = '10/10' , Gamingscoringcompany = 'IGN' &#xA;&#x9;where ScoreID = 1&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Community', Gamescore = '7/10' , Gamingscoringcompany = 'GameSpot' &#xA;&#x9;where ScoreID = 2&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Community',Gamescore = '8.7/10' , Gamingscoringcompany = 'Metacritic' &#xA;&#x9;where ScoreID = 3&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Stuart Andrews',Gamescore = '7/10' , Gamingscoringcompany = 'Trusted Reviews' &#xA;&#x9;where ScoreID = 4&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Community',Gamescore = '5.8/10' , Gamingscoringcompany = 'Steam' &#xA;&#x9;where ScoreID = 5&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'James Davenport',Gamescore = '10/10' , Gamingscoringcompany = 'PCGAMER' &#xA;&#x9;where ScoreID = 6&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'GERAINT',Gamescore = '9/10' , Gamingscoringcompany = 'Gamespew' &#xA;&#x9;where ScoreID = 7&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Dan Stapleton',Gamescore = '9.5/10' , Gamingscoringcompany = 'IGN' &#xA;&#x9;where ScoreID = 8&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Daniel Starkey ',Gamescore = '9/10' , Gamingscoringcompany = 'GameSpot' &#xA;&#x9;where ScoreID = 9&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Andrew Reiner',Gamescore = '9.5/10' , Gamingscoringcompany = 'Gameinformer' &#xA;&#x9;where ScoreID = 10&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Community',Gamescore = '7.9/10' , Gamingscoringcompany = 'Steam' &#xA;&#x9;where ScoreID = 11&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Allistair Pinsof',Gamescore = '9.5/10' , Gamingscoringcompany = 'Destructoid' &#xA;&#x9;where ScoreID = 12&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Unknown',Gamescore = 'N/A' , Gamingscoringcompany = 'Game in Alpha' &#xA;&#x9;where ScoreID = 13&#xA;&#xA;&#x9;Update game.GameScore&#xA;&#x9;set Personrating = 'Dave &quot;Fargo&quot; Kosak',Gamescore = '10/10' , Gamingscoringcompany = 'Pc Gamespy' &#xA;&#x9;where ScoreID = 14&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Hardware data 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{09506921-9ABE-496A-8677-8F3668909E28}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Hardware data 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="Use GamingProject&#xA;insert into hardware.PCRequirementsCPU (GameID ,CPURequirements)&#xA;values&#x9;('1','Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor (4 CPUs) @ 2.5GHz'),&#xA;&#x9;&#x9;('2','Intel Core 2 Duo E4400 2.0GHz. Athlon II X2 450'),&#xA;&#x9;&#x9;('3','Any 2.4 GHz Dual core.'),&#xA;&#x9;&#x9;('4','Intel Core i3-4170 or AMD FX-8120 '),&#xA;&#x9;&#x9;('5','Intel Core i3 '),&#xA;&#x9;&#x9;('6','Intel Core i5 @ 3.3 GHz or better / AMD FX-8320.'),&#xA;&#x9;&#x9;('7','Any 2 GHz Dual-Core 64-bit CPU'),&#xA;&#x9;&#x9;('8','Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent.'),&#xA;&#x9;&#x9;('9','Intel� Core� 2 Duo 3.0Ghz.'),&#xA;&#x9;&#x9;('10','Quad-core Intel or AMD CPU.'),&#xA;&#x9;&#x9;('11','Processor: Core 2 Duo E8200 2.66GHz or Phenom II X2 545.'),&#xA;&#x9;&#x9;('12','Intel CPU: Dual-Core Pentium D @ 2.4GHz,AMD CPU: Dual-Core AMD Athlon 64 X2 @ 2.0GHz'),&#xA;&#x9;&#x9;('13','Intel Core i5 @ 2.8 GHz (or AMD equivalent)'),&#xA;&#x9;&#x9;('14','PC with 1.4 Ghz equivalent or higher processor that supports SSE.')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Hardware data 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{472ED3A9-BB1D-4CF2-8387-1D1904246E1A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Hardware data 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="Use GamingProject&#xA;insert into Hardware.PCRequirementsGPU(GameID,GPURequirements) &#xA;values&#x9;('1','NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, *11)'),&#xA;&#x9;&#x9;('2','GeForce GTX 650 1GB. Radeon HD 7720. '),&#xA;&#x9;&#x9;('3','Graphics: NVIDIA GTX 260 or ATI 4850.'),&#xA;&#x9;&#x9;('4','GeForce GTX 460 1GB or AMD HD 6850 1GB '),&#xA;&#x9;&#x9;('5','nVidia GTX 480, AMD Radeon 7870 '),&#xA;&#x9;&#x9;('6','Nvidia GTX 670 2GB/ AMD Radeon HD 7870 (2GB VRAM)'),&#xA;&#x9;&#x9;('7',' DirectX11 Compatible GPU with 1 GB Video RAM.'),&#xA;&#x9;&#x9;('8','NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent.'),&#xA;&#x9;&#x9;('9','(DirectX 11) AMD Radeon HD 5770 1024MB | NVIDIA GTS 450 1024MB | Intel HD4000 @720P.'),&#xA;&#x9;&#x9;('10','DirectX 9 compatible NVIDIA or AMD ATI video card with 1GB of RAM (Nvidia GeForce GTX 260 or higher; ATI Radeon 4890 or higher).'),&#xA;&#x9;&#x9;('11','GeForce GTS 250 or Radeon HD 4830.'),&#xA;&#x9;&#x9;('12','NVidia GPU: NVidia GTX 200 or greater/AMD GPU: AMD HD4000 or greater'),&#xA;&#x9;&#x9;('13','NVIDIA GeForce GTX 560 / AMD Radeon HD 7800 series or better OpenGL 3.3.'),&#xA;&#x9;&#x9;('14','64 MB video card with HT&amp;L.')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Hardware data 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FEA0106E-587B-4E1E-AD30-815F905BAA3A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Hardware data 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="use GamingProject &#xA;insert into Hardware.PCRequirementsRam (GameID, RAMRequirements)&#xA;values  ('1','4GB'),&#xA;&#x9;&#x9;('2','8 GB'),&#xA;&#x9;&#x9;('3','2 GB'),&#xA;&#x9;&#x9;('4','8 GB'),&#xA;&#x9;&#x9;('5','8 GB'),&#xA;&#x9;&#x9;('6','8 GB'),&#xA;&#x9;&#x9;('7','4 GB'),&#xA;&#x9;&#x9;('8','8 GB'),&#xA;&#x9;&#x9;('9','3 GB'),&#xA;&#x9;&#x9;('10','4 GB'),&#xA;&#x9;&#x9;('11','3 GB'),&#xA;&#x9;&#x9;('12','1 GB XP / 2GB Vista'),&#xA;&#x9;&#x9;('13','8GB'),&#xA;&#x9;&#x9;('14','256 MB')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\If error occures"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{4F814825-9FEE-4EC1-A068-5A3DAD8EA1F4}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="If error occures"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{37B65F47-4263-42EE-AA82-947C78169978}"
+          SendMailTask:From="donotreply@hotties.com"
+          SendMailTask:To="BigBob@fuckbutt.whyareyoureadingthis"
+          SendMailTask:Subject="Error with Data creation"
+          SendMailTask:Priority="High"
+          SendMailTask:MessageSource="Something happened and you fucked it up" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Market data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{051D8BF4-9DD4-401E-ADEC-6110E7E3CF4C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Market data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{6140109E-59BB-49C4-8E8B-45B27E219D32}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65B8E798-79C1-46EE-A477-EE7234E01FF8}"
+          SQLTask:SqlStatementSource="use GamingProject&#xA;&#xA;&#xA;Insert into PublicMarket.Market&#x9;(GameID, Releasedate)&#xA;select gameid, ReleaseDate from game.Games;&#xA;&#xA;select * from publicmarket.market&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = '$2 Billion + ',&#xA;&#x9;&#x9;Numberofsales = '54 Million +',&#xA;&#x9;&#x9;cost = '$265 Million'&#xA;&#x9;where GameID = 1&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales ='$22 Million +' ,&#xA;&#x9;&#x9;Numberofsales ='2.4 Million +' ,&#xA;&#x9;&#x9;cost = 'Unannounced' &#xA;&#x9;where GameID = 2&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = '$110 million+' ,&#xA;&#x9;&#x9;Numberofsales = '3.5 Million +' ,&#xA;&#x9;&#x9;cost = '$2 Millon(For Console - PC Port unannouced))'&#xA;&#x9;where GameID = 3&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unannouced',&#xA;&#x9;&#x9;Numberofsales = ' 1 Million +',&#xA;&#x9;&#x9;cost = 'On Going'&#xA;&#x9;where GameID = 4&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unannouced',&#xA;&#x9;&#x9;Numberofsales ='800,000+(PC PORT)' ,&#xA;&#x9;&#x9;cost = 'Unannouced'&#xA;&#x9;where GameID = 5&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown' ,&#xA;&#x9;&#x9;Numberofsales = 'Unknown' ,&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 6&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown',&#xA;&#x9;&#x9;Numberofsales ='Unknown' ,&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 7&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales ='Unknown' ,&#xA;&#x9;&#x9;Numberofsales ='Unknown' ,&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 8&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales ='Unknown' ,&#xA;&#x9;&#x9;Numberofsales ='Unknown' ,&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 9&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales ='Unknown' ,&#xA;&#x9;&#x9;Numberofsales ='Unknown' ,&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 10&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown',&#xA;&#x9;&#x9;Numberofsales = 'Unknown',&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 11&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown',&#xA;&#x9;&#x9;Numberofsales = 'Unknown',&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 12&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown',&#xA;&#x9;&#x9;Numberofsales = 'Unknown',&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 13&#xA;&#xA;Update PublicMarket.Market&#xA;&#x9;set Totalsales = 'Unknown',&#xA;&#x9;&#x9;Numberofsales = 'Unknown',&#xA;&#x9;&#x9;cost = 'Unknown'&#xA;&#x9;where GameID = 14&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Package 2"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{5D48F325-F67A-428F-AE3B-305F1AC9C048}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package 2"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Database Views and etc.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3EBBB058-2B4E-4187-97F3-30B839DDAADE}"
+      DTS:From="Package\Dropping database if present"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Creating Database with schemas"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8F30C1C4-6411-4946-85BC-3B93198F16B8}"
+      DTS:From="Package\Creating Database with schemas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Creation of tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{5FFB91FC-D810-418A-BDDC-2492F59A0ACC}"
+      DTS:From="Package\Creating Database with schemas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\If error occures"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{617237FF-389E-4FDE-9DBA-75BFFAF971BA}"
+      DTS:From="Package\game - platform table data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\If error occures"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{BEB609A6-6B09-4BB1-B259-9F6DC07D1166}"
+      DTS:From="Package\Market data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\If error occures"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{921BD227-67D8-4B14-B673-4F14751AE9D0}"
+      DTS:From="Package\Market data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Package 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8074F4A-EBED-4243-A3BC-3C60450BB081}"
+      DTS:From="Package\Game-games Table data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Game-gamescore table data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB2EBD64-9B30-462E-BDBD-8FF3C5DCD82C}"
+      DTS:From="Package\Game-gamescore table data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\game - gernes table data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{06324D61-9BFC-4826-83EE-916A53BD12DC}"
+      DTS:From="Package\game - gernes table data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\game - platform table data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{2D3732A5-2042-4878-80CE-A08FD168AAE2}"
+      DTS:From="Package\Creation of tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Game-games Table data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{A37DCD28-2CF6-470F-B691-A4AC45E17309}"
+      DTS:From="Package\game - platform table data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Hardware data 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{25FA2B25-E2CF-46BC-BD66-297C5F5F838C}"
+      DTS:From="Package\Hardware data 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Hardware data 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{39AE100C-03F6-40F4-A979-E359A803142A}"
+      DTS:From="Package\Hardware data 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Hardware data 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{E95F5FC6-8E4A-4A8B-8604-CB7CD837CD73}"
+      DTS:From="Package\Hardware data 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Market data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Creation of tables"
+          TopLeft="438,44" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\If error occures"
+          TopLeft="222,690" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="292.5,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="200.833333333333,-83"
+              Start="0,0"
+              End="200.833333333333,-75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-45.3129584352078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-45.3129584352078"
+                    Point2="0,-49.3129584352078"
+                    Point3="4,-49.3129584352078" />
+                  <mssgle:LineSegment
+                    End="196.833333333333,-49.3129584352078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="196.833333333333,-49.3129584352078"
+                    Point2="200.833333333333,-49.3129584352078"
+                    Point3="200.833333333333,-53.3129584352078" />
+                  <mssgle:LineSegment
+                    End="200.833333333333,-75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="292.5,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.1666666666667,479"
+              Start="0,0"
+              End="-16.1666666666667,471.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,280.536737235367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,280.536737235367"
+                    Point2="0,284.536737235367"
+                    Point3="-4,284.536737235367" />
+                  <mssgle:LineSegment
+                    End="-12.1666666666667,284.536737235367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.1666666666667,284.536737235367"
+                    Point2="-16.1666666666667,284.536737235367"
+                    Point3="-16.1666666666667,288.536737235367" />
+                  <mssgle:LineSegment
+                    End="-16.1666666666667,471.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.3246809895833,289.536737235367,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="862,411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-522.75,279"
+              Start="0,0"
+              End="-522.75,271.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,178.931958762887" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,178.931958762887"
+                    Point2="0,182.931958762887"
+                    Point3="-4,182.931958762887" />
+                  <mssgle:LineSegment
+                    End="-518.75,182.931958762887" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-518.75,182.931958762887"
+                    Point2="-522.75,182.931958762887"
+                    Point3="-522.75,186.931958762887" />
+                  <mssgle:LineSegment
+                    End="-522.75,271.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-276.61634765625,187.931958762887,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="584.5,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-283,257"
+              Start="0,0"
+              End="-283,249.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,124.5"
+                    Point2="0,128.5"
+                    Point3="-4,128.5" />
+                  <mssgle:LineSegment
+                    End="-279,128.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-279,128.5"
+                    Point2="-283,128.5"
+                    Point3="-283,132.5" />
+                  <mssgle:LineSegment
+                    End="-283,249.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-156.74134765625,133.5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="544.666666666667,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="322.833333333333,69"
+              Start="0,0"
+              End="322.833333333333,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0048899755501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0048899755501"
+                    Point2="0,28.0048899755501"
+                    Point3="4,28.0048899755501" />
+                  <mssgle:LineSegment
+                    End="318.833333333333,28.0048899755501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="318.833333333333,28.0048899755501"
+                    Point2="322.833333333333,28.0048899755501"
+                    Point3="322.833333333333,32.0048899755501" />
+                  <mssgle:LineSegment
+                    End="322.833333333333,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="862,369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-263,-132"
+              Start="0,0"
+              End="-263,-124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-62" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-62"
+                    Point2="0,-66"
+                    Point3="-4,-66" />
+                  <mssgle:LineSegment
+                    End="-259,-66" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-259,-66"
+                    Point2="-263,-66"
+                    Point3="-263,-70" />
+                  <mssgle:LineSegment
+                    End="-263,-124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Dropping database if present"
+          TopLeft="13.5,5.5" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Creating Database with schemas"
+          TopLeft="5.5,85.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="121.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,9.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Creating Database"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="244,182"
+          Size="244,225"
+          Id="917066f7-cd2a-44da-a2b1-d0aed0fe71e5"
+          TopLeft="169.5,39.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Dropping database if present</s:String>
+            <s:String>Package\Creating Database with schemas</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Game-games Table data"
+          TopLeft="17.5,5.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Game-gamescore table data"
+          TopLeft="5.5,80.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\game - gernes table data"
+          TopLeft="12.5,154.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\game - platform table data"
+          TopLeft="7.5,220.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="95.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="95,122.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="96,196.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Game data"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="190,318"
+          Size="190,361"
+          Id="7de5c20f-a7ae-4018-b2d8-5628399bf3e6"
+          TopLeft="768.5,106.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Game-games Table data</s:String>
+            <s:String>Package\Game-gamescore table data</s:String>
+            <s:String>Package\game - gernes table data</s:String>
+            <s:String>Package\game - platform table data</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 3]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 4]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Hardware data 1"
+          TopLeft="30,5.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Hardware data 2"
+          TopLeft="28,64.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Hardware data 3"
+          TopLeft="23,128.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Market data"
+          TopLeft="27,201.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="30,26.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-2,59"
+              Start="0,0"
+              End="-9.5,59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,0"
+                    Point2="-24.5,0"
+                    Point3="-24.5,4" />
+                  <mssgle:LineSegment
+                    End="-24.5,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5,55"
+                    Point2="-24.5,59"
+                    Point3="-20.5,59" />
+                  <mssgle:LineSegment
+                    End="-9.5,59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="191,85.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4,64"
+              Start="0,0"
+              End="11.5,64">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,0"
+                    Point2="26.5,0"
+                    Point3="26.5,4" />
+                  <mssgle:LineSegment
+                    End="26.5,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,60"
+                    Point2="26.5,64"
+                    Point3="22.5,64" />
+                  <mssgle:LineSegment
+                    End="11.5,64" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="109,170.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,31"
+              Start="0,0"
+              End="-14.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,15.5"
+                    Point2="-14.5,15.5"
+                    Point3="-14.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Table Data 2"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="222,298"
+          Size="222,341"
+          Id="372a564a-ba25-4f15-9683-c49164c69353"
+          TopLeft="490.5,146.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Hardware data 1</s:String>
+            <s:String>Package\Hardware data 2</s:String>
+            <s:String>Package\Hardware data 3</s:String>
+            <s:String>Package\Market data</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 7]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 8]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 9]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <AnnotationLayout
+          Text="This Package Creates all data needed for this Database.&#xA;After completely Running it. DB will be available for you. "
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="329,56"
+          Id="15295a3e-579a-41dc-82be-cb0defc54d55"
+          TopLeft="599,41" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Package 2"
+          TopLeft="518.5,513.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="607.833333333333,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.5"
+              Start="0,0"
+              End="0,73">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,65 @@
+
+Project: Design and develop a fully operational database, with data, to monitor a favourite interest.
+
+A favourite interest can be: the weather, flowers, personalities, holidays, travel, science, computers...you get the idea.
+
+Planning phase: 
+
+Research
+
+- Capture all the online resources you visit/use as part of following your interest. Reflect on why you visit/use these. Do the resources provide info in conjunction with another?
+
+For example:
+
+Is there a resource that explains what the interest is about?
+Is there a resource that introduces tips and tricks?
+Is there a resource that links to Social Media sources?
+Is there a resource that offers live chat capability?
+Is there a resource that offers a newsletter?
+Is there a resource that offers expert advice?
+Is there a resource where community members can share things they find online?
+Is there a set of things that people do with information. people, tools, files, stories, etc? 
+Is there a resource that handles problems?
+Is there a resource that runs a marketplace?
+Altogether there may actually be a lot of information that can go into your database, and some of it has to be stored in a considered, logical, relevant way.
+
+Building the plan
+
+- Get an idea of what data you are going to store in your database (clues come from thinking about the purpose of the resources per above)
+
+- Get an idea of what you want to do with it (the business need).  
+
+Think about the of kind of questions a stranger might ask you about the data you've entered. How many experts have you come across? What kind of sites do they follow? What for? Thinking about this might actually partly answer the first question.
+
+Please discuss with tutor a first draft in case you're unsure about your plan.
+
+Development phase:
+
+- You have freedom as to what development work you do for making the database operational should a client application developer want to build for it. However, to make the database reflective of actual industry standards and processes, ensure at least:
+
+A stored procedure
+A function
+Queries reflective of intermediate to advanced data retrieval. Go beyond a simple SELECT statement to just pull out data 'as is' in the table.
+As part of the Import and Export process, make an SSIS package to read a file (for example, .txt) and insert that data into a table in your database.
+Hand In:
+
+Backup of your database (.bak file)
+A simple brief authored in WordPad. This introduces your Industry Project to a non-technical audience. It explains:
+
+what the project is 
+what a user can do with it.
+       Lay it out professionally. Putting all the above into one paragraph is not professional    presentation.
+
+Technical documentation: Use the 14 day trial from RedGate to generate this. 
+Optional: Listing of Views/Stored Procedures to use for testing the database.
+
+Where to hand it in: on your computer: D:\Yourname_IndustryProject
+
+Marking:
+
+Ensure that there are no errors when any object (View, Stored Procedure) is used
+Ensure that there is at least more than ONE table and ONE of:
+View
+Stored Procedure
+Function
+SSIS package to process data in some way

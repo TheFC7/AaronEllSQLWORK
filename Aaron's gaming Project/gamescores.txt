@@ -1,0 +1,15 @@
+ScoreID|GameID|Title|Gamescore|Gamingscoringcompany|Personrating
+1|1|Grand Theft Auto:5|10/10|IGN|Dan Stapleton
+2|2|Rust|7/10|GameSpot|Community
+3|3|Rocket League|8.7/10|Metacritic|Community
+4|4|Dead by Daylight|7/10|Trusted Reviews|Stuart Andrews
+5|5|No Mans Sky|5.8/10|Steam|Community
+6|6|DOOM|10/10|PCGAMER|James Davenport
+7|7|ARK: Survival Evolved|9/10|Gamespew|GERAINT
+8|8|Fallout 4|9.5/10|IGN|Dan Stapleton
+9|9|Total War: WARHAMMER|9/10|GameSpot|Daniel Starkey 
+10|10|The Elder Scrolls V: Skyrim|9.5/10|Gameinformer|Andrew Reiner
+11|11|Killing Floor 2|7.9/10|Steam|Community
+12|12|Counter-Strike: Global Offensive|9.5/10|Destructoid|Allistair Pinsof
+13|13|Scrap Mechanic|N/A|Game in Alpha|Unknown
+14|14|Age of Empires® III: Complete Collection|10/10|Pc Gamespy|Dave "Fargo" Kosak

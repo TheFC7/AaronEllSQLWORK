@@ -1,0 +1,15 @@
+GameID|GenreID|Title|Company|PurchancePrice|ReleaseDate
+1|12|Grand Theft Auto:5|Rockstar Games|91.99NZD|14 Apr, 2015
+2|12|Rust|Facepunch Studios|23.99NZD|12 Dec, 2013
+3|12|Rocket League|Psyonix, Inc|23.99NZD|7 Jul, 2015
+4|12|Dead by Daylight|Behaviour Digital Inc.|23.99NZD|14 Jun, 2016
+5|12|No Mans Sky|Hello Games|89.95NZD|13 Aug, 2016 
+6|12|DOOM|id Software|99.95NZD|13 May,2016
+7|12|ARK: Survival Evolved| Studio Wildcard	|34.99NZD| 3 Jun, 2015
+8|12|Fallout 4|Bethesda Softworks|99.95NZD| 10 Nov, 2015 
+9|12|Total War: WARHAMMER|Creative Assembly|99.99NZD|24 May 2016
+10|12|The Elder Scrolls V: Skyrim|Bethesda Game Studios|23.99NZD|11 Nov 2011
+11|12|Killing Floor 2|Tripwire Interactive|35.99NZD|22 Apr 2015
+12|12|Counter-Strike: Global Offensive|Valve|17.99NZD|22 Aug 2012
+13|12|Scrap Mechanic|Axolot Games|23.99NZD|20 Jan 2016
+14|12|Age of Empires® III: Complete Collection|Ensemble Studios|47.99NZD|15 Sep, 2009
